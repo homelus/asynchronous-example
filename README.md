@@ -3,9 +3,9 @@
 ## Future 와 CallBack
 
 많은 라이브러리는 두 가지 방법을 이용해 비동기를 제공한다.
-Future 를 반환하거나 Callback 파라미터를 넘기는 방법이다.
+**Future 를 반환**하거나 **Callback 파라미터**를 넘기는 방법이다.
 
-Future 는 pull 로 Callback 은 push 로 생각해 볼 수 있다.
+Future 는 `pull` 로 Callback 은 `push` 로 생각해 볼 수 있다.
 
 인스턴스에서 공유된 데이터를 이용해 프로세스가 처리되어 데이터가 들어올 때 까지 pull 하는 기능에서 
 인스턴스가 Future 라고 말할 수 있다. 
