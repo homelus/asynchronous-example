@@ -1,4 +1,4 @@
-# asynchronous 에 대한 개념과 예제 정리
+# asynchronous 라이브러리 개념 및 예제 정리
 
 ## Future 와 CallBack
 
