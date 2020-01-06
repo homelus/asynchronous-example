@@ -5,8 +5,8 @@ package jun.example.callback;
  * @since 2020 01 03
  */
 @FunctionalInterface
-public interface CallBack {
+public interface CallBack<T> {
 
-    void invoke(Object parameter);
+    void invoke(T parameter);
 
 }

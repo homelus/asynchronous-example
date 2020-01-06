@@ -5,12 +5,12 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  */
-public class Future {
+public class Future<T> {
 
-    private Object value = null;
+    private T value = null;
     private int state = 0;
 
-    public void setValue(Object value) {
+    public void setValue(T value) {
         this.value = value;
         this.state++;
     }
