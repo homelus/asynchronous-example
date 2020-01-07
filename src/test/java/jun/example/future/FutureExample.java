@@ -1,8 +1,9 @@
 package jun.example.future;
 
-import jun.example.future.Future;
-import jun.example.future.FutureService;
 import org.junit.Test;
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Future 테스트
@@ -17,13 +18,21 @@ public class FutureExample {
         Future<String> data2 = futureService.execute(() -> "result completed!");
         Future<String> data3 = futureService.execute(() -> "result completed!");
         System.out.println("before get");
-        Object o1 = data1.get();
-        Object o2 = data2.get();
-        Object o3 = data3.get();
+        String o1 = data1.get();
+        String o2 = data2.get();
+        String o3 = data3.get();
         System.out.println("after get");
-        System.out.println("result :" + o1.toString());
-        System.out.println("result :" + o2.toString());
-        System.out.println("result :" + o3.toString());
+        System.out.println("result :" + o1);
+        System.out.println("result :" + o2);
+        System.out.println("result :" + o3);
+    }
+
+    @Test
+    public void futureWithTimeOut() throws TimeoutException {
+        FutureService futureService = new FutureService();
+        Future<String> execute = futureService.execute(() -> "result Completed");
+        String o = execute.get(2, TimeUnit.SECONDS);
+        System.out.println(o);
     }
 
 }

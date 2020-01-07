@@ -10,6 +10,7 @@ import java.util.function.Supplier;
  */
 public class CallBackService {
 
+
     private static final Executor executor = Executors.newFixedThreadPool(4);
 
     public <T> void execute(Supplier<T> supplier, CallBack<T> callBack) {

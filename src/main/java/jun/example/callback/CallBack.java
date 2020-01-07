@@ -7,6 +7,8 @@ package jun.example.callback;
 @FunctionalInterface
 public interface CallBack<T> {
 
+
+
     void invoke(T parameter);
 
 }

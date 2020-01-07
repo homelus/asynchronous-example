@@ -16,7 +16,7 @@ public class FutureService {
         final Future<T> future = new Future();
         executor.execute(() -> {
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException ignored) {}
             // 프로세스 수행
             future.setValue(supplier.get());
