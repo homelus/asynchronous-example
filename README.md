@@ -16,7 +16,7 @@
 반환 받은 Future 에서 **get()** 메서드를 사용하면 앞으로 도착할 결과값을 기다렸다가 받을 수 있습니다.
 이때 사용중인 스레드는 **차단**됩니다.
 
-- Future 의 간단한 코드 구현 [Future-example-code]()
+- Future 의 간단한 코드 구현 [Future-example-code](/jun/example/asyncFuture.java)
 
 ### Callback
 
