@@ -17,7 +17,7 @@ public class ListenableFutureExample {
 
         future.addCallback(new FutureCallback<String>() {
             @Override
-            public void onSuccess(String result) { System.out.println("success: " + result); }
+            public void onSuccess(String result) { System.out.println("[" + Thread.currentThread().getName() + "] success: " + result); }
             @Override
             public void onFailure(Throwable failure) { failure.printStackTrace();  }
         });
