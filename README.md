@@ -16,7 +16,7 @@
 반환 받은 Future 에서 **get()** 메서드를 사용하면 앞으로 도착할 결과값을 기다렸다가 받을 수 있습니다.
 이때 사용중인 스레드는 **차단**됩니다.
 
-- Future 의 간단한 코드 구현 [Future-example-code](async/jun/example/asyncFuture/FutureExample.java)
+- Future 의 간단한 코드 구현 [Future-example-code](/async/jun/example/future/FutureExample.java)
 
 ### Callback
 
@@ -25,7 +25,7 @@ Callback 은 **다른 스레드**에서 프로세스를 실행 후 파라미터�
 
 이 방법의 예제는 다음과 같습니다.
 
-- Callback 의 간단한 코드 구현 [Callback-example-code]()
+- Callback 의 간단한 코드 구현 [Callback-example-code](/async/jun/example/callback/CallBackExample.java)
 
 ### Future vs Callback
 
@@ -41,7 +41,7 @@ guava 는 이 둘을 혼합한 [ListenableFuture](https://github.com/google/guav
 외부의 쓰레드에서 프로세스 처리 후 바로 실행하는 callback 과 달리 future 방식을 이용해 **실행을 지연**시킬 수 있습니다.
 이를 통해 callback 함수를 별도로 추가할 수 있고 더 나아가 여러 작업들을 **구성**하여 사용할 수 있습니다.
 
-- ListenableFuture 의 간단한 코드 구현 [ListenableFuture-example-code]()
+- ListenableFuture 의 간단한 코드 구현 [ListenableFuture-example-code](/async/jun/example/asyncFuture/ListenableFutureExample.java)
 
 
 
