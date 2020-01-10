@@ -10,7 +10,7 @@
 
 ### Future
 
-- Future 의 간단한 코드 구현 [Future-example-code](/async/jun/example/future/FutureExample.java)
+- [간단한 Future 구현](/async/jun/example/future/FutureExample.java)
 
 생성한 스레드에서 프로세스를 실행한 후 결과값을 공유 자원에 저장하고 가져오는 방법을 `Future`라고 합니다.
 예제에서는 메서드를 실행 후 공유 저장소로 사용되는 `Future`인스턴스를 반환하도록 구현합니다.
@@ -24,7 +24,7 @@
 
 ### Callback
 
-- Callback 의 간단한 코드 구현 [Callback-example-code](/async/jun/example/callback/CallBackExample.java)
+- [간단한 Callback 구현](/async/jun/example/callback/CallBackExample.java)
 
 Callback 은 **생성한 스레드**에서 프로세스를 실행 후 파라미터로 전달받은 **callback 클래스의 메서드를 실행**하는 방법입니다.
 **메인 스레드는 차단되지 않고** 본 작업을 계속 수행합니다.
@@ -40,7 +40,7 @@ Callback 은 **생성한 스레드**에서 프로세스를 실행 후 파라미�
 
 ## ListenableFuture
 
-- ListenableFuture 의 간단한 코드 구현 [ListenableFuture-example-code](/async/jun/example/asyncFuture/ListenableFutureExample.java)
+- [간단한 ListenableFuture 구현](/async/jun/example/asyncFuture/ListenableFutureExample.java)
 
 guava 는 이 둘을 혼합한 [ListenableFuture](https://github.com/google/guava/wiki/ListenableFutureExplained) 를 제공합니다.
 ([스프링에서는 4.0](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/util/concurrent/ListenableFuture.html)
