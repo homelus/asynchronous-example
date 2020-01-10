@@ -1,4 +1,4 @@
-# java 로 비동기를 구현
+# java 로 비동기를 구현해보자
 
 ## Future 와 CallBack
 
