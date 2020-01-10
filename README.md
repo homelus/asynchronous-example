@@ -88,18 +88,73 @@ public interface CallBack {
 이 둘은 다른 스레드에서 작업한 결과를 사용중인 스레드에서 처리할 것이냐, 해당 스레드에서 처리할 것이냐 라는 차이점이 있습니다.
 만약 결과가 현재 실행되고 있는 쓰레드에 영향을 준다면 Future 그렇지 않다면 Callback 을 사용하면 됩니다.
 
-### ListenableFuture
+## ListenableFuture
 
-guava 에서 구현한 [ListenableFuture](https://github.com/google/guava/wiki/ListenableFutureExplained) 라는 혼합된 형태도 존재합니다.
-스프링에서도 사용되고 있습니다.
+guava 에는 이 둘을 혼합해 구현한 [ListenableFuture](https://github.com/google/guava/wiki/ListenableFutureExplained) 가 있습니다.
+스프링에서도 4.0 부터 제공되고 있습니다.
 
-다른 쓰레드에서 함수를 실행시킬 때 성공했을 경우와 예외가 발생했을 경우 각각의 변수에 저장하도록 합니다.
-ListenableFuture 를 반환하는데 여기에 콜백함수를 지정할 수 있습니다.
-콜백함수를 지정하거나 결과값이 전달되거나 예외가 발생했을 때 콜백함수가 실행됩니다.
+이 클래스의 핵심은 작업이 완료되었을 때 실행되는 `callback 을 나중에 등록하는 것`입니다.
+이를 통해 callback 함수를 별도로 추가할 수 있고 예외가 발생했을 때 장애상황을 극복할 수 있습니다.
 
+다음의 예제를 보고 추가로 설명하겠습니다.
 
+```java
+public interface FutureCallback<V> {
+    void onSuccess(V result); // 성공 시
 
+    void onFailure(Throwable failure); // 실패 시
+}
 
+public class ListenableFuture<V> {
+
+    private FutureCallback<V> callback; // 콜백 저장소
+    private V result; // 결과값 공유 저장소
+    private Throwable failure; // 실패값 공유 저장소
+    private boolean isCompleted;
+
+    public void addCallback(FutureCallback<V> callback) {
+        this.callback = callback;
+        resolve();
+    }
+
+    public void setResult(V result) {
+        this.result = result;
+        isCompleted = true;
+        resolve();
+    }
+
+    public void setFailure(Throwable failure) {
+        this.failure = failure;
+        isCompleted = true;
+        resolve();
+    }
+
+    private void resolve() {
+        if (callback != null && isCompleted) {
+            if (failure == null) {
+                callback.onSuccess(result);
+            } else {
+                callback.onFailure(failure);
+            }
+        }
+    }
+}
+
+public class ListenableFutureService {
+    public <V> ListenableFuture<V> submit(final Callable<V> callable) { // 함수를 받아 처리한다.
+        final ListenableFuture<V> future = new ListenableFuture<>();
+        new Thread(() -> {
+            try {
+                V result = callable.call();
+                future.setResult(result);
+            } catch (Exception e) {
+                future.setFailure(e);
+            }
+        }).start();
+        return future; // 미래의 결과값을 저장소를 반환
+    }
+}
+```
 
 
  
