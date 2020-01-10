@@ -39,7 +39,7 @@ guava 는 이 둘을 혼합한 [ListenableFuture](https://github.com/google/guav
 
 이 방법은 작업이 완료되었을 때 실행되는 `callback 을 나중에 등록하는 것` 이 핵심입니다.
 외부의 쓰레드에서 프로세스 처리 후 바로 실행하는 callback 과 달리 future 방식을 이용해 **실행을 지연**시킬 수 있습니다.
-이를 통해 callback 함수를 별도로 추가할 수 있고 더 나아가 여러 작업들을 *구성*하여 사용할 수 있습니다.
+이를 통해 callback 함수를 별도로 추가할 수 있고 더 나아가 여러 작업들을 **구성**하여 사용할 수 있습니다.
 
 - ListenableFuture 의 간단한 코드 구현 [ListenableFuture-example-code]()
 
