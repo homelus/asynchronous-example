@@ -22,7 +22,9 @@
 반환받은 Future 에서 **get()** 메서드를 사용하면 새로운 쓰레드에서 처리된 결과값을 기다렸다가 받을 수 있습니다.
 이때 사용 중인 스레드는 **차단**됩니다.
 
+
 ![Future process](img/future.png)
+
 
 ### Callback
 
@@ -33,7 +35,9 @@ Callback 은 **새로운 스레드**에서 프로세스를 실행 후 파라미�
 
 이 방법의 예제는 다음과 같습니다.
 
+
 ![Callback process](img/callback.png)
+
 
 ### Future vs Callback
 
@@ -57,7 +61,9 @@ guava 는 이 둘을 혼합한 [ListenableFuture](https://github.com/google/guav
 
 callback 함수를 별도로 추가할 수 있는 점과 더 나아가 여러 작업들을 **구성**하여 사용할 수 있다는 것이 큰 장점입니다.
 
+
 ![ListenableFutre process](img/listenablefuture.png)
+
 
 ## CompletableFuture
 
