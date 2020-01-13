@@ -11,9 +11,11 @@ import java.util.concurrent.TimeUnit;
 public class ListenableFutureExample {
 
     public static void main(String[] args) throws InterruptedException {
-        ListenableFuture<String> future = new ListenableFutureExample().submit(() -> {
+        ListenableFuture<String> future = new ListenableFutureExample().execute(() -> {
             TimeUnit.SECONDS.sleep(1); return "completed";
         });
+
+//        Thread.sleep(2000);
 
         future.addCallback(new FutureCallback<String>() {
             @Override
@@ -25,7 +27,7 @@ public class ListenableFutureExample {
         TimeUnit.SECONDS.sleep(2);
     }
 
-    public <V> ListenableFuture<V> submit(final Callable<V> callable) { // 함수를 받아 처리한다.
+    public <V> ListenableFuture<V> execute(final Callable<V> callable) { // 함수를 받아 처리한다.
         final ListenableFuture<V> future = new ListenableFuture<>();
         new Thread(() -> {
             try { // Future 의 개념을 사용

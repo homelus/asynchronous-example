@@ -18,12 +18,12 @@ public class CallBackExample {
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException ignored) {}
-            callBack.invoke(parameter + " Completed");
+            callBack.execute(parameter + " Completed");
         }).start(); // 다른 워커 쓰레드에서 비동기로 작업을 실행한다.
     }
 }
 
 @FunctionalInterface
 interface CallBack {
-    void invoke(Object parameter);
+    void execute(Object parameter);
 }
