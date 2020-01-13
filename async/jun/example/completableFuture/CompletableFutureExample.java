@@ -1,8 +1,5 @@
 package jun.example.completableFuture;
 
-import java.util.concurrent.CompletableFuture;
-
-import static java.util.concurrent.CompletableFuture.runAsync;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
 /**
